@@ -9,6 +9,8 @@
  * @updated 2025-04-01 - Removed "Daily Life & Staying Connected" section and moved "Life at Belong" section higher.
  * @updated 2025-04-01 - Fixed lint errors by removing unused imports.
  * @updated 2025-04-01 - Improved page layout: moved all headings inside cards, removed CTA section, connected FAQ title with cards.
+ * @updated 2025-04-01 - Added main page heading with consistent styling across site.
+ * @updated 2025-04-01 - Standardized all section headers for visual consistency.
  */
 import React from 'react';
 // Removed Link import as it's no longer used
@@ -74,12 +76,15 @@ const FamiliesPage: React.FC = () => {
       {/* Main Content Area - Added pt-16, adjusted spacing to space-y-4 */}
       <div className="max-w-7xl mx-auto pt-16 pb-12 px-4 sm:px-6 lg:px-8 space-y-4">
 
+        {/* Main Page Heading */}
+        <h1 className="font-serif text-6xl md:text-7xl mb-8">for families.</h1>
+
         {/* Our Commitment Section - Move heading inside a container */}
         <section aria-labelledby="commitment-heading">
           <div className="bg-white p-6 rounded-lg shadow border border-gray-200 mb-6">
             <div className="flex items-center mb-4">
-              <HeartHandshake className="text-primary-600 mr-3" size={28} />
-              <h2 id="commitment-heading" className="text-2xl font-semibold text-gray-800">Our Commitment to Your Family</h2>
+              <HeartHandshake className="text-primary mr-2" size={20} />
+              <h3 id="commitment-heading" className="font-serif text-xl">our commitment to your family</h3>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center"> {/* Changed gap to 4 */}
@@ -105,9 +110,9 @@ const FamiliesPage: React.FC = () => {
         {/* Life at Belong Gallery Section - Moved to be second in order */}
         <section aria-labelledby="gallery-heading" className="mb-8">          
           <div className="bg-white p-6 rounded-lg shadow border border-gray-200">
-            <div className="flex items-center mb-6">
-              <Camera className="text-primary-600 mr-3" size={28} />
-              <h2 id="gallery-heading" className="text-2xl font-semibold text-gray-800">Life at Belong</h2>
+            <div className="flex items-center mb-4">
+              <Camera className="text-primary mr-2" size={20} />
+              <h3 id="gallery-heading" className="font-serif text-xl">life at belong</h3>
             </div>
             
             <p className="text-center text-gray-700 mb-6">
@@ -164,8 +169,8 @@ const FamiliesPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-gray-50 p-4 rounded-md border border-gray-200">
                 <div className="flex items-center mb-3">
-                  <Calendar className="text-primary-600 mr-2" size={20} />
-                  <h3 className="text-lg font-medium text-gray-800">Regular Events</h3>
+                  <Calendar className="text-primary mr-2" size={20} />
+                  <h4 className="font-serif text-lg">regular events</h4>
                 </div>
                 <ul className="space-y-2">
                   <li className="flex items-start">
@@ -189,8 +194,8 @@ const FamiliesPage: React.FC = () => {
               
               <div className="bg-gray-50 p-4 rounded-md border border-gray-200">
                 <div className="flex items-center mb-3">
-                  <Users className="text-primary-600 mr-2" size={20} />
-                  <h3 className="text-lg font-medium text-gray-800">Family Participation</h3>
+                  <Users className="text-primary mr-2" size={20} />
+                  <h4 className="font-serif text-lg">family participation</h4>
                 </div>
                 <p className="text-gray-700 mb-3">
                   We encourage family members to participate in our community events. Your presence adds to the joy 
@@ -208,8 +213,8 @@ const FamiliesPage: React.FC = () => {
         <section aria-labelledby="amenities-heading">
           <div className="bg-white p-6 rounded-lg shadow border border-gray-200">
             <div className="flex items-center mb-4">
-              <BedDouble className="text-primary-600 mr-3" size={28} />
-              <h2 id="amenities-heading" className="text-2xl font-semibold text-gray-800">Comforts of Home Included</h2>
+              <BedDouble className="text-primary mr-2" size={20} />
+              <h3 id="amenities-heading" className="font-serif text-xl">comforts of home included</h3>
             </div>
             
             <p className="text-center text-gray-600 mb-8">Your <span className="font-semibold text-primary-700">$500 monthly rate</span> covers a private room and all these essential amenities:</p>
@@ -234,7 +239,10 @@ const FamiliesPage: React.FC = () => {
         {/* Testimonial Section - Updated with blue background */}
         <section aria-labelledby="testimonial-heading">
           <div className="bg-primary/5 border border-primary/30 p-6 rounded-md shadow-sm hover:shadow-md transition-all">
-            <h2 id="testimonial-heading" className="text-2xl font-semibold text-gray-800 mb-4">What Our Families Say</h2>
+            <div className="flex items-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary mr-2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg>
+              <h3 id="testimonial-heading" className="font-serif text-xl">what our families say</h3>
+            </div>
             <blockquote className="text-gray-700 italic">
               <p className="mb-4">"I have a son that lives at Belong Health Care... I am more than satisfied with this place. It's a very nice & well kept house and the staff are wonderful. They have taken very good care of my son. They are very caring people and go out of their way to help... They also specialize in mental health... take the guys on outings & out to eat... I would highly recommend this home. It gives me peace of mind."</p>
               <footer className="font-semibold text-gray-800">- Debra Poellinger</footer>
@@ -246,8 +254,8 @@ const FamiliesPage: React.FC = () => {
         <section aria-labelledby="faq-heading">
           <div className="bg-white p-6 rounded-lg shadow border border-gray-200">
             <div className="flex items-center mb-4">
-              <HelpCircle className="text-primary-600 mr-3" size={28} />
-              <h2 id="faq-heading" className="text-2xl font-semibold text-gray-800">Frequently Asked Questions</h2>
+              <HelpCircle className="text-primary mr-2" size={20} />
+              <h3 id="faq-heading" className="font-serif text-xl">frequently asked questions</h3>
             </div>
             <p className="text-center text-gray-700 mb-6">
               Find answers to common questions about our care approach, visitation, and family involvement.

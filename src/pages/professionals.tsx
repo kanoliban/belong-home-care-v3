@@ -21,63 +21,111 @@
  * Updated: 2025-03-31 - Removed min-height and lengthened descriptions for height symmetry.
  * Updated: 2025-03-31 - Slightly shortened descriptions to fine-tune height symmetry.
  * Updated: 2025-03-31 - Removed subtle page background gradient, replaced with solid bg-gray-50.
+ * Updated: 2025-04-01 - Added main page heading with consistent styling across site.
+ * Updated: 2025-04-01 - Reorganized page into three distinct card sections with consistent styling.
  */
-// TODO: Update header comment when page is finalized (Date: YYYY-MM-DD)
 import React from 'react';
 import CaseManagerReferral from '../components/wizards/CaseManagerReferral';
-import { Phone, Mail, ClipboardList } from 'lucide-react';
+import { Phone, Mail, ClipboardList, FileText, Users, Briefcase } from 'lucide-react';
 import ExpandableCard from '../components/ui/ExpandableCard';
 import FeatureCard from '../components/ui/FeatureCard';
 
 const ProfessionalsPage: React.FC = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
-      <div className="container mx-auto px-4 py-8 space-y-10">
+      <div className="max-w-7xl mx-auto pt-16 pb-12 px-4 sm:px-6 lg:px-8 space-y-8">
 
-        {/* --- Section for Referrers --- */}
-        <section aria-labelledby="referrers-heading">
-          <h2 id="referrers-heading" className="text-3xl font-bold text-center text-gray-900 mb-8">
-            Information for Referrers & Case Managers
-          </h2>
+        {/* Main Page Heading */}
+        <h1 className="font-serif text-6xl md:text-7xl mb-8">for professionals.</h1>
 
-          {/* Row 1: Referral Wizard & Availability/Contact */}
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-10">
-            {/* Left: Referral Wizard (takes more space) */}
-            <div className="lg:col-span-3 bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4 text-center lg:text-left">Make a Referral</h3>
-              <CaseManagerReferral />
+        {/* --- Section 1: Information for Referrers & Case Managers --- */}
+        <section aria-labelledby="referrers-heading" className="mb-8">
+          <div className="bg-white p-6 rounded-lg shadow border border-gray-200">
+            <div className="flex items-center mb-6">
+              <FileText className="text-primary mr-3" size={28} />
+              <h2 id="referrers-heading" className="text-2xl font-semibold text-gray-800">Information for Referrers & Case Managers</h2>
             </div>
 
-            {/* Right: Availability & Contact Card */}
-            <div className="lg:col-span-2 bg-blue-50 p-6 rounded-lg shadow-lg border border-blue-200 space-y-6 flex flex-col justify-between">
-              <div>
-                <h3 className="text-xl font-semibold text-blue-800 mb-4">Current Availability</h3>
-                <p className="text-lg text-gray-700">
-                  Aspen Grove House (18+): <span className="font-medium text-orange-600">Currently Full</span>
-                </p>
-                <p className="text-lg text-gray-700">
-                  Willow Stream Residence (55+): <span className="font-medium text-green-600">1 Bed Available</span>
-                </p>
+            {/* Row 1: Referral Wizard & Availability/Contact */}
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8">
+              {/* Left: Referral Wizard (takes more space) */}
+              <div className="lg:col-span-3 bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h3 className="text-xl font-semibold text-gray-800 mb-4 text-center lg:text-left">Make a Referral</h3>
+                <CaseManagerReferral />
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-blue-800 mb-4">Direct Contact for Referrals</h3>
-                <div className="space-y-2">
-                  <div className="flex items-center">
-                    <Phone size={18} className="text-blue-600 mr-2 flex-shrink-0" />
-                    <span className="text-lg text-gray-700">(651) 705 6625 (Attn: Frances)</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Mail size={18} className="text-blue-600 mr-2 flex-shrink-0" />
-                    <span className="text-lg text-gray-700">frances@belonghomecare.com</span>
+
+              {/* Right: Availability & Contact Card */}
+              <div className="lg:col-span-2 bg-primary/10 p-6 rounded-lg border border-gray-200 space-y-6 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Current Availability</h3>
+                  <p className="text-lg text-gray-700">
+                    Aspen Grove House (18+): <span className="font-medium text-orange-600">Currently Full</span>
+                  </p>
+                  <p className="text-lg text-gray-700">
+                    Willow Stream Residence (55+): <span className="font-medium text-green-600">1 Bed Available</span>
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Direct Contact for Referrals</h3>
+                  <div className="space-y-2">
+                    <div className="flex items-center">
+                      <Phone size={18} className="text-primary mr-2 flex-shrink-0" />
+                      <span className="text-lg text-gray-700">(651) 705 6625 (Attn: Frances)</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Mail size={18} className="text-primary mr-2 flex-shrink-0" />
+                      <span className="text-lg text-gray-700">frances@belonghomecare.com</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Row 2: Services (Feature Cards) */}
-          <div className="mb-10">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-5 text-center">Services & Expertise</h3>
+            {/* Row 3: Criteria & About (Expandable Cards) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <ExpandableCard
+                title="Admission Criteria"
+                summary={<p>Key criteria for joining our community homes.</p>}
+                expandedContent={
+                  <ul className="list-disc list-inside space-y-2 text-gray-600">
+                    <li>Primary mental health diagnosis</li>
+                    <li>Ambulatory or able to self-transfer</li>
+                    <li>Appropriate funding source (e.g., CADI waiver, Private Pay)</li>
+                    <li>Seeking residency in Brooklyn Park area</li>
+                    <li>Willingness to participate in community living</li>
+                  </ul>
+                }
+                icon={<ClipboardList size={20} className="text-primary" />}
+              />
+              <ExpandableCard
+                title="About Belong's Homes"
+                summary={
+                  <p>We offer supportive, home-like settings for adults (18+ and 55+) with mental health conditions, focusing on community, dignity, and personalized care.</p>
+                }
+                expandedContent={
+                  <>
+                    <p className="mb-3">Belong provides a supportive, home-like environment for adults aged 18+ (Aspen Grove House) and 55+ (Willow Stream Residence) primarily managing mental health conditions. We focus on individuals seeking community integration and personalized support for daily living.</p>
+                    <p>We believe in a person-centered approach, fostering independence while providing tailored assistance. Our core values are dignity, respect, community, and creating a true sense of belonging for everyone.</p>
+                  </>
+                }
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* --- Section 2: Our Services & Approach --- */}
+        <section aria-labelledby="services-heading" className="mb-8">
+          <div className="bg-white p-6 rounded-lg shadow border border-gray-200">
+            <div className="flex items-center mb-6">
+              <Users className="text-primary mr-3" size={28} />
+              <h2 id="services-heading" className="text-2xl font-semibold text-gray-800">Our Services & Approach</h2>
+            </div>
+            
+            <p className="text-center text-gray-700 mb-6">
+              At Belong, we provide comprehensive support services in a home-like environment, 
+              focusing on personalized care and fostering independence.
+            </p>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <FeatureCard
                 title="Medication Management"
@@ -112,113 +160,74 @@ const ProfessionalsPage: React.FC = () => {
               {/* Add more service cards if needed */}
             </div>
           </div>
-
-          {/* Row 3: Criteria & About (Expandable Cards) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            <ExpandableCard
-              title="Admission Criteria"
-              summary={<p>Key criteria for joining our community homes.</p>}
-              expandedContent={
-                <ul className="list-disc list-inside space-y-2 text-gray-600">
-                  <li>Primary mental health diagnosis</li>
-                  <li>Ambulatory or able to self-transfer</li>
-                  <li>Appropriate funding source (e.g., CADI waiver, Private Pay)</li>
-                  <li>Seeking residency in Brooklyn Park area</li>
-                  <li>Willingness to participate in community living</li>
-                </ul>
-              }
-              icon={<ClipboardList size={20} className="text-primary" />} // Example icon
-            />
-            <ExpandableCard
-              title="About Belong's Homes"
-              summary={
-                <p>We offer supportive, home-like settings for adults (18+ and 55+) with mental health conditions, focusing on community, dignity, and personalized care.</p>
-              }
-              expandedContent={
-                <>
-                  <p className="mb-3">Belong provides a supportive, home-like environment for adults aged 18+ (Aspen Grove House) and 55+ (Willow Stream Residence) primarily managing mental health conditions. We focus on individuals seeking community integration and personalized support for daily living.</p>
-                  <p>We believe in a person-centered approach, fostering independence while providing tailored assistance. Our core values are dignity, respect, community, and creating a true sense of belonging for everyone.</p>
-                </>
-              }
-              // Add imageUrl if desired
-            />
-          </div>
-        </section> {/* End of Referrers Section */}
+        </section>
 
         {/* --- Section for Careers --- */}
-        <section aria-labelledby="careers-heading" className="pt-10">
-          <h2 id="careers-heading" className="text-3xl font-bold text-center text-gray-900 mb-8">
-            Careers at Belong
-          </h2>
-
-          {/* Row 1: Openings & Why Work Here */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
-            {/* Left Column: Current Openings (Direct Display) */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Current Openings</h3>
-              {/* Opening 1: Residential Care Coordinator */}
-              <div className="bg-white p-4 rounded-lg shadow border border-gray-200 space-y-3">
-                <h4 className="text-lg font-semibold text-primary">Residential Care Coordinator</h4>
-                <p className="text-sm"><strong>Full-time | Aspen Grove House (18+), Brooklyn Park</strong></p>
-                <p className="text-gray-700 text-sm">
-                  Core duties: medication management, care coordination, ensuring a positive home atmosphere. LPN/RN required.
-                </p>
-                {/* <a href="#" className="text-xs text-primary hover:underline block mb-2">View Full Job Description</a> */} {/* Optional link if needed later */}
-                <a href="mailto:careers@belonghomecare.com?subject=Application: Residential Care Coordinator" className="inline-block bg-primary text-white px-3 py-1.5 rounded hover:bg-primary-dark transition duration-200 text-sm">Apply Now</a>
-              </div>
-
-              {/* Opening 2: Overnight Support Staff */}
-              <div className="bg-white p-4 rounded-lg shadow border border-gray-200 space-y-3">
-                <h4 className="text-lg font-semibold text-primary">Overnight Support Staff</h4>
-                <p className="text-sm"><strong>Part-time (10pm-6am) | Willow Stream Residence (55+), Brooklyn Park</strong></p>
-                <p className="text-gray-700 text-sm">
-                  Key tasks: overnight supervision, resident support, medication assistance, safety checks. CNA preferred.
-                </p>
-                {/* <a href="#" className="text-xs text-primary hover:underline block mb-2">View Full Job Description</a> */} {/* Optional link if needed later */}
-                <a href="mailto:careers@belonghomecare.com?subject=Application: Overnight Support Staff" className="inline-block bg-primary text-white px-3 py-1.5 rounded hover:bg-primary-dark transition duration-200 text-sm">Apply Now</a>
-              </div>
-              {/* Add more openings as needed */}
+        <section aria-labelledby="careers-heading" className="mb-8">
+          <div className="bg-white p-6 rounded-lg shadow border border-gray-200">
+            <div className="flex items-center mb-6">
+              <Briefcase className="text-primary mr-3" size={28} />
+              <h2 id="careers-heading" className="text-2xl font-semibold text-gray-800">Careers at Belong</h2>
             </div>
+            
+            <p className="text-center text-gray-700 mb-6">
+              Join our dedicated team where your work makes a meaningful difference in the lives of our residents.
+              We're looking for compassionate professionals who share our values.
+            </p>
 
-            {/* Right Column: Why Work With Us (Feature Cards - Smaller) */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Why Work With Us?</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <FeatureCard
-                  title="Make a Genuine Difference"
-                  description="Impact residents' lives by fostering independence in a true home."
-                  className="p-3 text-sm"
-                />
-                <FeatureCard
-                  title="Supportive Team Environment"
-                  description="Join a collaborative, respectful, family-like team."
-                  className="p-3 text-sm"
-                />
-                <FeatureCard
-                  title="Growth Opportunities"
-                  description="Develop professionally in a growing organization. We offer pathways for advancement."
-                  className="p-3 text-sm"
-                />
-                <FeatureCard
-                  title="Positive Work Culture"
-                  description="Help create a warm, dignified, and respectful environment. We value teamwork."
-                  className="p-3 text-sm"
-                />
+            {/* Row 1: Openings & Why Work Here */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+              {/* Left Column: Current Openings (Direct Display) */}
+              <div className="space-y-6">
+                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Current Openings</h3>
+                {/* Opening 1: Residential Care Coordinator */}
+                <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 space-y-3">
+                  <h4 className="text-lg font-semibold text-primary">Residential Care Coordinator</h4>
+                  <p className="text-sm"><strong>Full-time | Aspen Grove House (18+), Brooklyn Park</strong></p>
+                  <p className="text-gray-700 text-sm">
+                    Core duties: medication management, care coordination, ensuring a positive home atmosphere. LPN/RN required.
+                  </p>
+                  {/* <a href="#" className="text-xs text-primary hover:underline block mb-2">View Full Job Description</a> */} {/* Optional link if needed later */}
+                  <a href="mailto:careers@belonghomecare.com?subject=Application: Residential Care Coordinator" className="inline-block bg-primary text-white px-3 py-1.5 rounded hover:bg-primary-dark transition duration-200 text-sm">Apply Now</a>
+                </div>
+
+                {/* Opening 2: Overnight Support Staff */}
+                <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 space-y-3">
+                  <h4 className="text-lg font-semibold text-primary">Overnight Support Staff</h4>
+                  <p className="text-sm"><strong>Part-time (10pm-6am) | Willow Stream Residence (55+), Brooklyn Park</strong></p>
+                  <p className="text-gray-700 text-sm">
+                    Key tasks: overnight supervision, resident support, medication assistance, safety checks. CNA preferred.
+                  </p>
+                  {/* <a href="#" className="text-xs text-primary hover:underline block mb-2">View Full Job Description</a> */} {/* Optional link if needed later */}
+                  <a href="mailto:careers@belonghomecare.com?subject=Application: Overnight Support Staff" className="inline-block bg-primary text-white px-3 py-1.5 rounded hover:bg-primary-dark transition duration-200 text-sm">Apply Now</a>
+                </div>
               </div>
-            </div>
-          </div>
 
-          {/* Row 2: Join Our Team Intro (Takes full width now) */}
-          <div className="mt-8">
-            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Join Our Team</h3>
-              <p className="text-lg text-gray-600">
-                At Belong, we're more than just a care provider – we're a family creating homes where everyone feels they belong. We seek compassionate individuals dedicated to helping residents with their daily tasks and special care needs. Our Resident Assistants administer medications, assist with ADLs (dressing, showering, grooming, etc.), help with room order, and carefully document resident well-being, reporting changes to the RN Supervisor. If you're passionate about making a difference in a supportive environment, we invite you to explore opportunities with us.
-              </p>
+              {/* Right Column: Why Work Here (Feature Cards) */}
+              <div className="space-y-6">
+                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Why Work With Us</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h4 className="text-lg font-semibold text-gray-800 mb-3">Meaningful Impact</h4>
+                    <p className="text-gray-600">Make a real difference in residents' lives through compassionate care and personal connection.</p>
+                  </div>
+                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h4 className="text-lg font-semibold text-gray-800 mb-3">Supportive Team</h4>
+                    <p className="text-gray-600">Join a close-knit, collaborative group dedicated to quality care and mutual support.</p>
+                  </div>
+                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h4 className="text-lg font-semibold text-gray-800 mb-3">Growth Opportunities</h4>
+                    <p className="text-gray-600">Access ongoing training, mentorship, and pathways for professional development.</p>
+                  </div>
+                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h4 className="text-lg font-semibold text-gray-800 mb-3">Competitive Benefits</h4>
+                    <p className="text-gray-600">Enjoy competitive pay, paid time off, health insurance options, and flexible scheduling.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          {/* Removed the separate "How to Apply" section, handled by mailto links in job listings */}
-        </section> {/* End of Careers Section */}
+        </section>
       </div>
     </div>
   );
