@@ -3,6 +3,7 @@
  * Created: 2025-03-21
  * Description: A component for displaying careers information and job openings
  * This card is used on the homepage to highlight career opportunities at Belong
+ * Updated: 2025-04-01 - Updated phone number.
  */
 
 import React, { useState } from 'react';
@@ -128,7 +129,7 @@ const CareersCard = ({
                   </a>
                 </p>
                 <p>
-                  You can also call Frances directly at <a href="tel:+16125557890" className="text-primary hover:underline">(612) 555-7890</a> to learn more about this position.
+                  You can also call Frances directly at <a href="tel:+16517056625" className="text-primary hover:underline">(651) 705-6625</a> to learn more about this position.
                 </p>
               </div>
             </>

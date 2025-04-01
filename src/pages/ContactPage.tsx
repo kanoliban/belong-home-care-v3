@@ -4,6 +4,14 @@ import Highlight from '../components/ui/Highlight';
 import { useForm } from 'react-hook-form';
 import { Phone, Mail, MapPin, Clock, Users } from 'lucide-react';
 
+/**
+ * ContactPage.tsx
+ * Created: 2025-03-20
+ * Description: Contact page with information and form
+ * Updated: 2025-03-21 - Added contact form and Google Maps integration
+ * Updated: 2025-04-01 - Updated phone number throughout the page.
+ */
+
 type ContactFormData = {
   name: string;
   email: string;
@@ -59,7 +67,7 @@ const ContactPage = () => {
                   <Phone size={20} className="text-primary mr-3 flex-shrink-0" />
                   <div>
                     <p className="font-medium">Phone</p>
-                    <p><Highlight className="font-semibold">(612) 555-7890</Highlight></p>
+                    <p><Highlight className="font-semibold">(651) 705-6625</Highlight></p>
                   </div>
                 </div>
                 
@@ -211,7 +219,7 @@ const ContactPage = () => {
           <h2 className="font-serif text-2xl mb-4">Referrals & Quick Response</h2>
           <p className="mb-3">
             If you're a case manager or healthcare provider with an urgent referral, please call me directly 
-            at <Highlight className="font-semibold">(612) 555-7890</Highlight> for the fastest response.
+            at <Highlight className="font-semibold">(651) 705-6625</Highlight> for the fastest response.
           </p>
           <p>
             I prioritize professional inquiries about our current availability and can quickly determine if 

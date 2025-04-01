@@ -4,6 +4,9 @@
  * Description: Hero section for the homepage with a large image and headline
  * Updated: 2025-03-21 - Replaced descriptive paragraph with a direct call-to-action
  * Updated: 2025-03-21 - Reduced vertical height by 30% and adjusted elements accordingly
+ * Updated: 2025-04-01 - Increased heading size for better visibility.
+ * Updated: 2025-04-01 - Further increased heading size (approx. 2x request).
+ * Updated: 2025-04-01 - Used inline style (2.34rem) for heading size due to Tailwind processing issues.
  */
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -33,7 +36,10 @@ const Hero = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white mb-3">
+          <h1 
+            className="font-serif text-white mb-3" 
+            style={{ fontSize: '2.34rem' }} 
+          >
             A place everyone <span className="text-primary">belongs</span>.
           </h1>
           <p className="text-white/90 text-base md:text-lg max-w-3xl mb-4">

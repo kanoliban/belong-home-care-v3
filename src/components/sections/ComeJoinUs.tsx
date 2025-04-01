@@ -48,7 +48,7 @@ const ComeJoinUs = () => {
       <div className="bg-gray-50 p-4 border border-gray-200 rounded-sm">
         <p className="font-serif text-lg">Ready to learn more?</p>
         <p className="mt-2">
-          Contact me directly at <Highlight className="font-semibold">(612) 555-7890</Highlight> or 
+          Contact me directly at <Highlight className="font-semibold">(651) 705-6625</Highlight> or 
           <Highlight className="font-semibold ml-1">schedule a visit</Highlight> using the form in the "let's talk" section.
         </p>
       </div>

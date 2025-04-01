@@ -50,7 +50,8 @@ const LetsTalk = () => {
         <div className="flex flex-col space-y-3">
           <div className="flex items-center">
             <Phone size={18} className="text-primary mr-3" />
-            <span><Highlight className="font-semibold">(612) 555-7890</Highlight></span>
+            <span className="font-medium block">Call Us Directly:</span>
+            <span><Highlight className="font-semibold">(651) 705-6625</Highlight></span>
           </div>
           <div className="flex items-center">
             <Mail size={18} className="text-primary mr-3" />

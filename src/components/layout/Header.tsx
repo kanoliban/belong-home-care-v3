@@ -23,6 +23,7 @@
  * Description: Changed to a very subtle blue-gray (#F8FAFC) - cool and minimal
  * Updated: 2025-03-20
  * Description: Constrained header width to match content sections
+ * Updated: 2025-04-01 - Changed company name text color to white.
  */
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, NavLink } from 'react-router-dom';
@@ -54,7 +55,7 @@ const Header = () => {
             {/* <img className="h-8 w-auto" src="/path/to/new/logo.svg" alt="Belong Health Care" /> */}
             <Link to="/" className="text-2xl font-bold hover:text-accent transition-colors">
               {/* Placeholder text until logo is ready */}
-              Belong Health Care
+              <span className="font-bold text-xl text-white">Belong Health Care</span>
             </Link>
           </div>
 

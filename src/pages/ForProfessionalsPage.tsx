@@ -10,6 +10,8 @@
  *              Moved section headings inside cards for visual consistency.
  *              Maintained existing content but restructured for better visual flow.
  *              Updated 2025-04-01: Ensured all titles are inside their respective cards and adjusted spacing.
+ *              Updated: 2025-04-01 - Updated phone number.
+ *              Updated: 2025-04-01 - Increased header font size to match AboutPage styling but larger.
  */
 import { motion } from 'framer-motion';
 import Highlight from '../components/ui/Highlight';
@@ -26,7 +28,7 @@ const ForProfessionalsPage = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <h1 className="font-serif text-4xl md:text-5xl mb-4">for professionals.</h1>
+        <h1 className="font-serif text-6xl md:text-7xl mb-4">for professionals.</h1>
         
         {/* Current Availability Section */}
         <div className="bg-primary/10 p-6 rounded-sm mb-4">
@@ -37,7 +39,7 @@ const ForProfessionalsPage = () => {
           <p className="text-lg mt-2">
             <Highlight className="font-semibold">We currently have 3 beds available in our 55+ home</Highlight> 
             (Willow Stream Residence) and are actively accepting referrals. For the fastest response, 
-            please call Frances directly at <Highlight className="font-semibold">(612) 555-7890</Highlight>.
+            please call Frances directly at <Highlight className="font-semibold">(651) 705-6625</Highlight>.
           </p>
         </div>
         
@@ -312,7 +314,7 @@ const ForProfessionalsPage = () => {
                 <li className="flex items-start">
                   <span className="text-primary mr-2">•</span>
                   <span>
-                    <strong>Phone:</strong> Call Frances directly at <a href="tel:+16125557890" className="text-primary hover:underline">(612) 555-7890</a>
+                    <strong>Phone:</strong> Call Frances directly at <a href="tel:+16517056625" className="text-primary hover:underline">(651) 705-6625</a>
                   </span>
                 </li>
                 <li className="flex items-start">

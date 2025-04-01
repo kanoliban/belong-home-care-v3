@@ -8,6 +8,8 @@
  *              Organized content into visually consistent sections with proper spacing and imagery.
  *              Updated 2025-04-01: Added "Daily Life & Staying Connected" and "Comforts of Home" sections based on feedback.
  *              Added one additional FAQ question for an even number of questions.
+ *              Updated 2025-04-01: Increased header font size to match AboutPage styling but larger.
+ *              Updated 2025-04-01: Standardized all section headers for visual consistency.
  */
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -49,7 +51,7 @@ const ForFamiliesPage = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-4xl mx-auto px-4 py-12">
-        <h1 className="font-serif text-4xl md:text-5xl mb-8">for families.</h1>
+        <h1 className="font-serif text-6xl md:text-7xl mb-8">for families.</h1>
         
         {/* Introduction Section with ExpandableCard */}
         <section className="mb-12">
@@ -83,8 +85,8 @@ const ForFamiliesPage = () => {
           {/* Comforts of Home Included - Moved higher on the page as requested */}
           <div className="bg-primary/10 p-6 rounded-sm mb-8">
             <div className="flex items-center mb-4">
-              <Coffee size={22} className="text-primary mr-3" />
-              <h3 className="font-serif text-2xl">Comforts of Home Included</h3>
+              <Coffee size={20} className="text-primary mr-2" />
+              <h3 className="font-serif text-xl">comforts of home included</h3>
             </div>
             
             <p className="mb-3">
@@ -135,8 +137,8 @@ const ForFamiliesPage = () => {
           {/* Our Promise to Families */}
           <div className="bg-primary/10 p-6 rounded-sm mb-10">
             <div className="flex items-center mb-4">
-              <Heart size={22} className="text-primary mr-3" />
-              <h3 className="font-serif text-2xl">Our Promise to Families</h3>
+              <Heart size={20} className="text-primary mr-2" />
+              <h3 className="font-serif text-xl">our promise to families</h3>
             </div>
             
             <ul className="space-y-2">
@@ -166,9 +168,9 @@ const ForFamiliesPage = () => {
         
         {/* What We Offer Section */}
         <section className="mb-16">
-          <div className="flex items-center mb-6">
-            <Home size={24} className="text-primary mr-3" />
-            <h2 className="font-serif text-3xl">What We Offer</h2>
+          <div className="flex items-center mb-4">
+            <Home size={20} className="text-primary mr-2" />
+            <h3 className="font-serif text-xl">what we offer</h3>
           </div>
           
           {/* Feature cards with images - similar to HomePage */}
@@ -248,9 +250,9 @@ const ForFamiliesPage = () => {
         
         {/* FAQs Section */}
         <section className="mb-16">
-          <div className="flex items-center mb-6">
-            <HelpCircle size={24} className="text-primary mr-3" />
-            <h2 className="font-serif text-3xl">Frequently Asked Questions</h2>
+          <div className="flex items-center mb-4">
+            <HelpCircle size={20} className="text-primary mr-2" />
+            <h3 className="font-serif text-xl">frequently asked questions</h3>
           </div>
           
           <div className="space-y-2">
@@ -368,9 +370,9 @@ const ForFamiliesPage = () => {
         
         {/* Family Resources Section */}
         <section className="mb-12">
-          <div className="flex items-center mb-6">
-            <Users size={24} className="text-primary mr-3" />
-            <h2 className="font-serif text-3xl">Family Resources</h2>
+          <div className="flex items-center mb-4">
+            <Users size={20} className="text-primary mr-2" />
+            <h3 className="font-serif text-xl">family resources</h3>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

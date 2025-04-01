@@ -9,6 +9,8 @@
  *                       Implemented card-based styling, moved headings inside cards,
  *                       added proper spacing, and incorporated consistent icon usage.
  * Updated: 2025-04-01 - Updated location addresses for both residences.
+ * Updated: 2025-04-01 - Updated phone number in ContactCard prop.
+ * Updated: 2025-04-01 - Removed "Find Us" map placeholder section.
  */
 
 import React from 'react';
@@ -62,7 +64,7 @@ const ContactPage: React.FC = () => {
                 <Phone size={20} className="text-primary mr-3 mt-1" />
                 <div>
                   <p className="font-medium">Main Office</p>
-                  <p className="text-lg">(612) 555-7890</p>
+                  <p className="text-lg">(651) 705-6625</p>
                 </div>
               </div>
               
@@ -171,24 +173,6 @@ const ContactPage: React.FC = () => {
                 </button>
               </div>
             </form>
-          </div>
-        </div>
-        
-        {/* Google Map Section */}
-        <div className="bg-white p-6 rounded-lg shadow border border-gray-200 mb-4">
-          <div className="flex items-center mb-4">
-            <MapPin size={22} className="text-primary mr-3" />
-            <h2 className="font-serif text-2xl">Find Us</h2>
-          </div>
-          
-          <div className="aspect-video bg-gray-200 rounded-sm flex items-center justify-center">
-            <p className="text-gray-500">[Google Map Placeholder - Implementation Pending]</p>
-            {/* 
-            Implementation notes:
-            1. Add Google Maps API key to .env file
-            2. Install and import the Google Maps React component
-            3. Configure with locations of both residences 
-            */}
           </div>
         </div>
       </div>

@@ -1,8 +1,10 @@
 /**
  * ContactCard.tsx
  * Created: 2025-03-20
- * Description: A card component with an integrated contact form
- * Updated: 2025-03-20 - Added id prop for anchor links
+ * Description: A card component designed for displaying contact information and a contact form.
+ * Initially created with placeholder data.
+ * Updated: 2025-03-21 - Added placeholder contact form fields
+ * Updated: 2025-04-01 - Updated phone number.
  */
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -82,21 +84,27 @@ const ContactCard: React.FC<ContactCardProps> = ({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6 text-white">
               <h3 className="font-serif text-2xl mb-2">{title}</h3>
-              <div className="space-y-2">
-                <a 
-                  href={`tel:${phoneNumber.replace(/\D/g, '')}`}
-                  className="flex items-center text-white hover:text-primary transition-colors"
-                >
-                  <Phone size={16} className="mr-2" />
-                  {phoneNumber}
-                </a>
-                <a 
-                  href={`mailto:${email}`}
-                  className="flex items-center text-white hover:text-primary transition-colors"
-                >
-                  <Mail size={16} className="mr-2" />
-                  {email}
-                </a>
+              <div className="space-y-3">
+                <div>
+                  <h3 className="text-lg font-semibold text-white mb-1">Phone</h3>
+                  <a 
+                    href={`tel:${phoneNumber.replace(/\D/g, '')}`}
+                    className="flex items-center text-white hover:text-primary transition-colors"
+                  >
+                    <Phone size={16} className="mr-2" />
+                    {phoneNumber}
+                  </a>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-white mb-1">Email</h3>
+                  <a 
+                    href={`mailto:${email}`}
+                    className="flex items-center text-white hover:text-primary transition-colors"
+                  >
+                    <Mail size={16} className="mr-2" />
+                    {email}
+                  </a>
+                </div>
               </div>
             </div>
           </div>

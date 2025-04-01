@@ -11,6 +11,7 @@
  * Updated: 2025-03-21 - Replaced CareersCard with JoinOurTeam wizard component
  * Updated: 2025-03-21 - Added MissionBanner component between Hero and main content
  * Updated: 2025-03-21 - Removed highlighted "Belong" span from ExpandableCard title
+ * Updated: 2025-04-01 - Updated phone number.
  */
 
 /**
@@ -288,7 +289,7 @@ const HomePage = () => {
           </p>
         }
         imageUrl="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-        phoneNumber="(612) 555-7890"
+        phoneNumber="(651) 705-6625"
         email="frances@belonghomecare.com"
       />
     </div>
