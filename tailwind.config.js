@@ -2,10 +2,15 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    fontSize: {
+      base: '17px', // Increase base font size for better readability
+      '2xs': '0.625rem',
+    },
     extend: {
       colors: {
-        primary: '#FF5C39',
-        secondary: '#FFB238',
+        primary: '#2563EB', // Confidential Blue
+        accent: '#FF5C39', // Warm Orange accent
+        secondary: '#FFB238', // Kept for now, may remove later
         background: '#F5F7FA',
         text: '#444444',
       },
@@ -16,9 +21,6 @@ export default {
       spacing: {
         '84': '21rem',
         '96': '24rem',
-      },
-      fontSize: {
-        '2xs': '0.625rem',
       },
       gridTemplateColumns: {
         'masonry': 'repeat(auto-fill, minmax(300px, 1fr))',
@@ -41,7 +43,7 @@ export default {
               fontWeight: '400',
             },
             a: {
-              color: '#FF5C39',
+              color: '#2563EB',
               textDecoration: 'none',
               '&:hover': {
                 textDecoration: 'underline',

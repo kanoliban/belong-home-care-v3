@@ -1,4 +1,15 @@
 /**
+ * Generic Card Component
+ * 
+ * Purpose: Provides a reusable card structure for displaying content sections.
+ *          Intended for use in masonry or grid layouts.
+ * 
+ * Planned Updates (2025-03-30):
+ * - May need adjustments to support expandable content based on PRD.
+ * - Styling updates to align with new brand colors and overall visual consistency.
+ * - Ensure adaptability for different content types (text, images, lists).
+ */
+/**
  * Card.tsx
  * Updated: 2025-03-19
  * Description: Updated to use a lighter gray background for all cards and ensure independent expansion

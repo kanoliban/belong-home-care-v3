@@ -1,7 +1,21 @@
+/**
+ * src/pages/ForFamiliesPage.tsx
+ * Purpose: Provides information for families of potential and current residents, including FAQs, visit scheduling, and resources.
+ * 
+ * Date: 2025-04-01
+ * Description: Initial modification to match the visual style and component structure of the HomePage.
+ *              Updated with ExpandableCard and FeatureCard components for visual consistency.
+ *              Organized content into visually consistent sections with proper spacing and imagery.
+ *              Updated 2025-04-01: Added "Daily Life & Staying Connected" and "Comforts of Home" sections based on feedback.
+ *              Added one additional FAQ question for an even number of questions.
+ */
 import React from 'react';
 import { motion } from 'framer-motion';
-import Highlight from '../components/ui/Highlight';
-import { Heart, HelpCircle, Calendar, Mail } from 'lucide-react';
+import { Heart, HelpCircle, Home, Users, Coffee } from 'lucide-react';
+
+// Import specialized card components used in HomePage
+import ExpandableCard from '../components/ui/ExpandableCard';
+import FeatureCard from '../components/ui/FeatureCard';
 
 const FAQItem = ({ question, children }: { question: string, children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -34,90 +48,206 @@ const ForFamiliesPage = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <section className="max-w-4xl mx-auto mb-16">
+      <div className="max-w-4xl mx-auto px-4 py-12">
         <h1 className="font-serif text-4xl md:text-5xl mb-8">for families.</h1>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-          <div>
-            <p className="text-lg mb-6">
-              I understand that finding the right home for your loved one with mental health 
-              challenges can be overwhelming. At Belong, we strive to make this process as 
-              smooth and reassuring as possible.
+        {/* Introduction Section with ExpandableCard */}
+        <section className="mb-12">
+          <ExpandableCard
+            title="supporting your loved ones."
+            summary={
+              <p>
+                I understand that finding the right home for your loved one with mental health 
+                challenges can be overwhelming. At Belong, we strive to make this process as 
+                smooth and reassuring as possible.
+              </p>
+            }
+            expandedContent={
+              <>
+                <p className="mb-3">
+                  Families are an integral part of our community. We encourage regular visits, 
+                  welcome your involvement in care decisions, and value your insights about your 
+                  loved one's needs and preferences.
+                </p>
+                <p>
+                  Our goal is to create a true partnership with families, working together to ensure 
+                  your loved one thrives in an environment where they feel safe, valued, and truly at home.
+                </p>
+              </>
+            }
+            wideCard={true}
+            imageUrl="https://images.unsplash.com/photo-1591343395082-e120087004b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            className="mb-10"
+          />
+          
+          {/* Comforts of Home Included - Moved higher on the page as requested */}
+          <div className="bg-primary/10 p-6 rounded-sm mb-8">
+            <div className="flex items-center mb-4">
+              <Coffee size={22} className="text-primary mr-3" />
+              <h3 className="font-serif text-2xl">Comforts of Home Included</h3>
+            </div>
+            
+            <p className="mb-3">
+              We believe in creating an environment that truly feels like home. Each resident enjoys:
             </p>
             
-            <p className="mb-4">
-              Families are an integral part of our community. We encourage regular visits, 
-              welcome your involvement in care decisions, and value your insights about your 
-              loved one's needs and preferences.
-            </p>
-            
-            <div className="bg-primary/10 p-5 rounded-sm mb-6">
-              <div className="flex items-center mb-3">
-                <Heart size={20} className="text-primary mr-2" />
-                <h3 className="font-serif text-xl">Our Promise to Families</h3>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <span className="text-primary mr-2">•</span>
-                  <span>Regular updates on your loved one's well-being</span>
+                  <span>Private or semi-private bedroom</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary mr-2">•</span>
-                  <span>Transparent communication about care and medications</span>
+                  <span>Home-cooked meals with dietary accommodations</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary mr-2">•</span>
-                  <span>Respect for family relationships and dynamics</span>
+                  <span>Cozy common areas for socializing</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary mr-2">•</span>
-                  <span>Inclusion in care planning when appropriate</span>
+                  <span>Entertainment options (TV, games, music)</span>
+                </li>
+              </ul>
+              
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <span className="text-primary mr-2">•</span>
+                  <span>Laundry and cleaning services</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary mr-2">•</span>
-                  <span>Support and resources for family members</span>
+                  <span>Transportation to appointments</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary mr-2">•</span>
+                  <span>Outdoor spaces for relaxation</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary mr-2">•</span>
+                  <span>Internet access for staying connected</span>
                 </li>
               </ul>
             </div>
           </div>
           
-          <div className="space-y-6">
-            <div className="aspect-video bg-gray-100 overflow-hidden rounded-sm shadow-sm">
-              <img 
-                src="https://images.unsplash.com/photo-1591343395082-e120087004b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-                alt="Family visiting" 
-                className="w-full h-full object-cover"
-              />
+          {/* Our Promise to Families */}
+          <div className="bg-primary/10 p-6 rounded-sm mb-10">
+            <div className="flex items-center mb-4">
+              <Heart size={22} className="text-primary mr-3" />
+              <h3 className="font-serif text-2xl">Our Promise to Families</h3>
             </div>
             
-            <div className="border border-gray-200 p-5 rounded-sm">
-              <div className="flex items-center mb-3">
-                <Calendar size={20} className="text-primary mr-2" />
-                <h3 className="font-serif text-xl">Visiting Hours</h3>
-              </div>
-              <p className="mb-3">
-                We welcome family visits and encourage maintaining strong connections. Our general 
-                visiting hours are:
-              </p>
-              <ul className="space-y-1">
-                <li className="flex justify-between">
-                  <span>Monday - Friday:</span>
-                  <span>9:00am - 8:00pm</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Weekends:</span>
-                  <span>10:00am - 8:00pm</span>
-                </li>
-              </ul>
-              <p className="mt-3 text-sm">
-                Special arrangements can be made for birthdays, holidays, or other important occasions.
-                Please call ahead if you'd like to join us for a meal.
-              </p>
-            </div>
+            <ul className="space-y-2">
+              <li className="flex items-start">
+                <span className="text-primary mr-2">•</span>
+                <span>Regular updates on your loved one's well-being</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-primary mr-2">•</span>
+                <span>Transparent communication about care and medications</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-primary mr-2">•</span>
+                <span>Respect for family relationships and dynamics</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-primary mr-2">•</span>
+                <span>Inclusion in care planning when appropriate</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-primary mr-2">•</span>
+                <span>Support and resources for family members</span>
+              </li>
+            </ul>
           </div>
-        </div>
+        </section>
         
-        <div className="mb-12">
+        {/* What We Offer Section */}
+        <section className="mb-16">
+          <div className="flex items-center mb-6">
+            <Home size={24} className="text-primary mr-3" />
+            <h2 className="font-serif text-3xl">What We Offer</h2>
+          </div>
+          
+          {/* Feature cards with images - similar to HomePage */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <FeatureCard
+              title="visiting hours"
+              description={
+                <div>
+                  <p className="mb-2">We welcome family visits during our generous hours:</p>
+                  <div className="text-xs space-y-1">
+                    <div className="flex justify-between">
+                      <span>Monday - Friday:</span>
+                      <span>9:00am - 8:00pm</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Weekends:</span>
+                      <span>10:00am - 8:00pm</span>
+                    </div>
+                  </div>
+                </div>
+              }
+              imageUrl="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+            />
+            <FeatureCard
+              title="family involvement"
+              description={
+                <p>We encourage families to participate in care planning, join special events, and maintain strong connections with their loved ones in our homes.</p>
+              }
+              imageUrl="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+            />
+            <FeatureCard
+              title="communication"
+              description={
+                <p>Regular updates, scheduled family meetings, and open channels for questions or concerns ensure you're always informed about your loved one's care.</p>
+              }
+              imageUrl="https://images.unsplash.com/photo-1573497161079-f3fd25cc6b90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+            />
+          </div>
+          
+          {/* Daily Life & Staying Connected Card - Split into two sections but on the same card */}
+          <FeatureCard
+            title="daily life & staying connected"
+            description={
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-medium mb-2 text-primary">Daily Life</h4>
+                  <p className="mb-2">
+                    Residents enjoy a structured but flexible routine that includes:
+                  </p>
+                  <ul className="text-sm space-y-1">
+                    <li>• Nutritious meals and snacks</li>
+                    <li>• Group activities and outings</li>
+                    <li>• Quiet time for personal hobbies</li>
+                    <li>• Medication management</li>
+                    <li>• Light household chores as appropriate</li>
+                  </ul>
+                </div>
+                
+                <div className="border-t border-gray-200 pt-3">
+                  <h4 className="font-medium mb-2 text-primary">Staying Connected</h4>
+                  <p className="mb-2">
+                    We help residents maintain meaningful connections through:
+                  </p>
+                  <ul className="text-sm space-y-1">
+                    <li>• Wi-Fi access throughout our homes</li>
+                    <li>• Assistance with video calls to family</li>
+                    <li>• Regular family events and holiday celebrations</li>
+                    <li>• Support for community involvement</li>
+                  </ul>
+                </div>
+              </div>
+            }
+            imageUrl="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+            className="mb-6"
+          />
+        </section>
+        
+        {/* FAQs Section */}
+        <section className="mb-16">
           <div className="flex items-center mb-6">
             <HelpCircle size={24} className="text-primary mr-3" />
             <h2 className="font-serif text-3xl">Frequently Asked Questions</h2>
@@ -214,52 +344,83 @@ const ForFamiliesPage = () => {
                 while maintaining safety and appropriate boundaries.
               </p>
             </FAQItem>
+            
+            {/* Added new FAQ question for an even number */}
+            <FAQItem question="How do you maintain the quality of care?">
+              <p>
+                Quality care is our highest priority at Belong. We maintain our standards through:
+              </p>
+              <ul className="list-disc pl-5 mt-2 space-y-1">
+                <li>Continuous training for all staff members</li>
+                <li>Regular care plan reviews and adjustments</li>
+                <li>Feedback mechanisms for residents and families</li>
+                <li>Adherence to all state and local regulations</li>
+                <li>Partnerships with healthcare providers and specialists</li>
+                <li>Ongoing assessment of resident satisfaction and outcomes</li>
+              </ul>
+              <p className="mt-2">
+                We believe that exceptional care requires both professional expertise and genuine compassion,
+                and we are committed to providing both to every resident in our homes.
+              </p>
+            </FAQItem>
           </div>
-        </div>
+        </section>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div className="border border-gray-200 p-6 rounded-sm">
-            <div className="flex items-center mb-4">
-              <Calendar size={20} className="text-primary mr-3" />
-              <h3 className="font-serif text-xl">Schedule a Family Visit</h3>
-            </div>
-            <p className="mb-4">
-              We encourage families to visit and see our homes firsthand. This gives you the opportunity 
-              to meet our staff, ask questions, and get a feel for our community.
-            </p>
-            <a 
-              href="/contact" 
-              className="bg-primary text-white px-4 py-2 rounded-sm hover:bg-primary/90 transition-colors inline-block"
-            >
-              Schedule a Visit
-            </a>
+        {/* Family Resources Section */}
+        <section className="mb-12">
+          <div className="flex items-center mb-6">
+            <Users size={24} className="text-primary mr-3" />
+            <h2 className="font-serif text-3xl">Family Resources</h2>
           </div>
           
-          <div className="border border-gray-200 p-6 rounded-sm">
-            <div className="flex items-center mb-4">
-              <Mail size={20} className="text-primary mr-3" />
-              <h3 className="font-serif text-xl">Family Resource Packet</h3>
-            </div>
-            <p className="mb-4">
-              We've compiled helpful information for families, including our handbook, 
-              care philosophy, policies, and useful resources about mental health care.
-            </p>
-            <button 
-              className="bg-primary text-white px-4 py-2 rounded-sm hover:bg-primary/90 transition-colors inline-block"
-            >
-              Request Family Resource Packet
-            </button>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <FeatureCard
+              title="schedule a family visit"
+              description={
+                <div>
+                  <p className="mb-4">
+                    We encourage families to visit and see our homes firsthand. This gives you the opportunity 
+                    to meet our staff, ask questions, and get a feel for our community.
+                  </p>
+                  <a 
+                    href="/contact" 
+                    className="bg-primary text-white px-4 py-2 rounded-sm hover:bg-primary/90 transition-colors inline-block"
+                  >
+                    Schedule a Visit
+                  </a>
+                </div>
+              }
+              imageUrl="https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+            />
+            
+            <FeatureCard
+              title="family resource packet"
+              description={
+                <div>
+                  <p className="mb-4">
+                    We've compiled helpful information for families, including our handbook, 
+                    care philosophy, policies, and useful resources about mental health care.
+                  </p>
+                  <button 
+                    className="bg-primary text-white px-4 py-2 rounded-sm hover:bg-primary/90 transition-colors inline-block"
+                  >
+                    Request Family Resource Packet
+                  </button>
+                </div>
+              }
+              imageUrl="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+            />
           </div>
-        </div>
+        </section>
         
         <div className="border-t border-gray-200 pt-8">
-          <p className="text-center italic">
+          <p className="text-center italic text-gray-700">
             "The difference at Belong is that Frances treats our son like family, 
             not just a resident. He's happier and more stable than we've seen him in years."
-            <span className="block mt-2">— Parent of an Aspen Grove resident</span>
+            <span className="block mt-2 font-medium">— Parent of an Aspen Grove resident</span>
           </p>
         </div>
-      </section>
+      </div>
     </motion.div>
   );
 };

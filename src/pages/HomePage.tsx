@@ -12,7 +12,22 @@
  * Updated: 2025-03-21 - Added MissionBanner component between Hero and main content
  * Updated: 2025-03-21 - Removed highlighted "Belong" span from ExpandableCard title
  */
-import { Utensils, Bus, Users, Heart, UserPlus } from 'lucide-react';
+
+/**
+ * HomePage Component
+ * 
+ * Purpose: Serves as the main landing page for the website.
+ *          Organizes and displays key content sections using a card-based layout.
+ * 
+ * Planned Updates (2025-03-30):
+ * - Restructure content based on user notes (move Why I Started, Our Team).
+ * - Reorder remaining sections (Homes, Residents, Meals, Days).
+ * - Implement chosen layout strategy (Masonry, Grid, etc.) based on tile feedback.
+ * - Integrate new sections/components (Testimonials, Amenities).
+ * - Apply new branding and ensure visual consistency.
+ */
+
+import { Utensils, Bus, Users, UserPlus } from 'lucide-react';
 
 // UI Components
 import ExpandableCard from '../components/ui/ExpandableCard';
@@ -29,7 +44,6 @@ import MissionBanner from '../components/sections/MissionBanner';
 // Wizard Components
 import FamilyVisit from '../components/wizards/FamilyVisit';
 import CaseManagerReferral from '../components/wizards/CaseManagerReferral';
-import JoinOurTeam from '../components/wizards/JoinOurTeam';
 
 const HomePage = () => {
   // Sample data for timeline comparison
@@ -154,43 +168,6 @@ const HomePage = () => {
           icon={<Users size={20} className="text-primary" />}
           imageUrl="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
         />
-      </div>
-
-      {/* Row 3: Frances's Personal Story and Join Our Team */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="flex">
-          <ExpandableCard
-            title="why I started Belong"
-            summary={
-              <p>
-                My cousin lived with schizophrenia, and I saw firsthand how difficult it was to find a place 
-                where he could feel at home while receiving the support he needed.
-              </p>
-            }
-            expandedContent={
-              <>
-                <p className="mb-3">
-                  I remember thinking: if my cousin lived here, would I feel good about it? The answer for most places was no.
-                </p>
-                <p className="mb-3">
-                  After working as a psychiatric nurse for a decade, I realized there was a gap in care for people 
-                  with mental health conditions who needed a supportive living environment that wasn't institutional.
-                </p>
-                <p>
-                  I founded Belong in 2015 with a single home, and we've grown organically since then. Every decision 
-                  we make is guided by a simple question: "Would I want my loved one to live here?" If the answer isn't 
-                  an enthusiastic "yes," we make changes until it is.
-                </p>
-              </>
-            }
-            wideCard={true}
-            imageUrl="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-            icon={<Heart size={20} className="text-primary" />}
-          />
-        </div>
-        <div className="flex">
-          <JoinOurTeam />
-        </div>
       </div>
 
       {/* Row 4: Daily Life Comparison */}

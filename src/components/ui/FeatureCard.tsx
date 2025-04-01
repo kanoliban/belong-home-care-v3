@@ -3,6 +3,8 @@
  * Created: 2025-03-20
  * Description: A card component that highlights a key feature or differentiator
  * Updated: 2025-03-20 - Made the entire card clickable
+ * Updated: 2025-03-31 - Made imageUrl optional and adjusted layout.
+ * Updated: 2025-03-31 - Completely removed the icon prop and rendering.
  */
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -11,8 +13,7 @@ import { ExternalLink } from 'lucide-react';
 interface FeatureCardProps {
   title: string;
   description: React.ReactNode;
-  icon: React.ReactNode;
-  imageUrl: string;
+  imageUrl?: string; // Made optional
   className?: string;
   onClick?: () => void;
 }
@@ -20,7 +21,6 @@ interface FeatureCardProps {
 const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
   description,
-  icon,
   imageUrl,
   className = '',
   onClick
@@ -44,23 +44,24 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="aspect-video overflow-hidden">
-        <img 
-          src={imageUrl} 
-          alt={title} 
-          className="w-full h-full object-cover"
-        />
-      </div>
-      
-      <div className="p-5">
-        <div className="flex items-center mb-3">
-          <div className="bg-white p-2 rounded-full mr-3 shadow-sm">
-            {icon}
-          </div>
-          <h3 className="font-serif text-xl">{title}</h3>
+      {/* Conditionally render image if imageUrl is provided */}
+      {imageUrl && (
+        <div className="aspect-video overflow-hidden">
+          <img 
+            src={imageUrl} 
+            alt={title} 
+            className="w-full h-full object-cover"
+          />
         </div>
-        
-        <div>{description}</div>
+      )}
+      
+      {/* Content Area - Set to relative for absolute positioning of icon */}
+      <div className="p-5 relative"> 
+        {/* Text Content */}
+        <div> 
+          <h3 className="font-serif text-xl mb-3">{title}</h3>
+          <div className="text-gray-600 text-sm">{description}</div>
+        </div>
         
         {onClick && isHovered && (
           <div className="mt-3 flex items-center text-primary text-sm font-medium">

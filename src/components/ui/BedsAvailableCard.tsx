@@ -1,4 +1,14 @@
 /**
+ * BedsAvailableCard Component
+ * 
+ * Purpose: Specific card variant to display information about available beds
+ *          within the "Our Homes" section.
+ * 
+ * Planned Updates (2025-03-30):
+ * - Ensure styling aligns with the overall Card component and new branding.
+ * - Update content source/structure as needed based on backend or data changes.
+ */
+/**
  * BedsAvailableCard.tsx
  * Created: 2025-03-20
  * Description: A card component that displays current room availability with inquiry modal

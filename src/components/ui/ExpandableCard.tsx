@@ -5,6 +5,7 @@
  * Updated: 2025-03-20 - Made the entire card clickable to expand/collapse content
  * Updated: 2025-03-21 - Adjusted to use full height of container
  * Updated: 2025-03-21 - Added highlighting for the word "Belong" in the branded orange color
+ * Updated: 2025-04-01 - Fixed "Read more" button to properly toggle expansion state
  */
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -18,6 +19,7 @@ interface ExpandableCardProps {
   className?: string;
   wideCard?: boolean;
   imageUrl?: string;
+  initialExpanded?: boolean;
 }
 
 const ExpandableCard: React.FC<ExpandableCardProps> = ({
@@ -27,9 +29,10 @@ const ExpandableCard: React.FC<ExpandableCardProps> = ({
   icon,
   className = '',
   wideCard = false,
-  imageUrl
+  imageUrl,
+  initialExpanded = false
 }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(initialExpanded);
   
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
@@ -64,8 +67,8 @@ const ExpandableCard: React.FC<ExpandableCardProps> = ({
 
   return (
     <motion.div 
-      className={`bg-[#f9f9f9] border border-gray-200 rounded-md shadow-sm overflow-hidden cursor-pointer flex flex-col ${className}`}
       initial={{ opacity: 0 }}
+      className={`bg-[#f9f9f9] border border-gray-200 rounded-md shadow-sm overflow-hidden cursor-pointer flex flex-col ${className}`}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
       layout
@@ -91,23 +94,31 @@ const ExpandableCard: React.FC<ExpandableCardProps> = ({
           
           <div className="mb-4 flex-grow">{summary}</div>
           
-          <AnimatePresence>
+          <AnimatePresence initial={false}>
             {isExpanded && (
               <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
-                className="mb-4"
+                key="content"
+                initial="collapsed"
+                animate="open"
+                exit="collapsed"
+                variants={{
+                  open: { opacity: 1, height: "auto" },
+                  collapsed: { opacity: 0, height: 0 },
+                }}
+                transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+                className="mb-4 overflow-hidden"
               >
                 {expandedContent}
               </motion.div>
             )}
           </AnimatePresence>
           
-          <div
-            className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm font-medium mt-auto"
-            onClick={(e) => e.stopPropagation()}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              toggleExpand();
+            }}
+            className="flex items-center text-primary hover:bg-gray-100 transition-colors text-sm font-medium mt-auto cursor-pointer py-1 px-2 rounded"
           >
             {isExpanded ? (
               <>
@@ -118,7 +129,7 @@ const ExpandableCard: React.FC<ExpandableCardProps> = ({
                 Read more <ChevronDown size={16} className="ml-1" />
               </>
             )}
-          </div>
+          </button>
         </div>
       </div>
     </motion.div>

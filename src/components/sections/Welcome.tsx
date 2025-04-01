@@ -1,4 +1,16 @@
 /**
+ * Welcome Section Component
+ * 
+ * Purpose: Displays the initial greeting and introductory text on the homepage.
+ *          Introduces user to the Belong Health Care residences, including location photos.
+ * 
+ * Created: 2025-03-15
+ * Updated: 2025-03-17 - Added residence cards with photos and descriptions
+ * Updated: 2025-03-18 - Improved mobile layout and text readability
+ * Updated: 2025-03-19 - Changed image layout to show two stacked house cards with addresses
+ * Updated: 2025-04-01 - Updated residence addresses to correct locations
+ */
+/**
  * Welcome.tsx
  * Updated: 2025-03-19
  * Description: Removed titles from image cards to create a cleaner, more minimal design
@@ -81,8 +93,7 @@ const Welcome = () => {
         <div className="flex flex-col h-full">
           <div>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal mb-8">
-              Hey there, I'm <Highlight>Frances</Highlight>
-              <span className="inline-block ml-2">👋</span>
+              <Highlight>Frances</Highlight>
               <span className="block mt-4">Welcome to our residential care communities.</span>
             </h2>
             
@@ -126,7 +137,7 @@ const Welcome = () => {
               </div>
               <div className="flex items-center justify-end text-xs text-text/60 mt-2">
                 <MapPin size={12} className="mr-1" />
-                <span>1234 Maple Street, Brooklyn Park, MN 55443</span>
+                <span>4809 Oxborough Gardens N, Brooklyn Park, MN</span>
               </div>
             </div>
           </div>
@@ -145,7 +156,7 @@ const Welcome = () => {
               </div>
               <div className="flex items-center justify-end text-xs text-text/60 mt-2">
                 <MapPin size={12} className="mr-1" />
-                <span>5678 River Road, Brooklyn Park, MN 55443</span>
+                <span>7017 88th Ave N, Brooklyn Park, MN</span>
               </div>
             </div>
           </div>

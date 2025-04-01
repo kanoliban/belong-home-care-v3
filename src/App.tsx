@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
@@ -7,12 +7,10 @@ import Layout from './components/layout/Layout';
 
 // Pages
 const HomePage = lazy(() => import('./pages/HomePage'));
-const AboutPage = lazy(() => import('./pages/AboutPage'));
-const OurHomesPage = lazy(() => import('./pages/OurHomesPage'));
-const OurApproachPage = lazy(() => import('./pages/OurApproachPage'));
-const ForFamiliesPage = lazy(() => import('./pages/ForFamiliesPage'));
-const ForProfessionalsPage = lazy(() => import('./pages/ForProfessionalsPage'));
-const ContactPage = lazy(() => import('./pages/ContactPage'));
+const AboutPage = lazy(() => import('./pages/about'));
+const ProfessionalsPage = lazy(() => import('./pages/professionals'));
+const FamiliesPage = lazy(() => import('./pages/families'));
+const ContactPage = lazy(() => import('./pages/contact'));
 
 function App() {
   const location = useLocation();
@@ -31,24 +29,14 @@ function App() {
               <AboutPage />
             </Suspense>
           } />
-          <Route path="/our-homes" element={
+          <Route path="/professionals" element={
             <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><p>Loading...</p></div>}>
-              <OurHomesPage />
+              <ProfessionalsPage />
             </Suspense>
           } />
-          <Route path="/our-approach" element={
+          <Route path="/families" element={
             <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><p>Loading...</p></div>}>
-              <OurApproachPage />
-            </Suspense>
-          } />
-          <Route path="/for-families" element={
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><p>Loading...</p></div>}>
-              <ForFamiliesPage />
-            </Suspense>
-          } />
-          <Route path="/for-professionals" element={
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><p>Loading...</p></div>}>
-              <ForProfessionalsPage />
+              <FamiliesPage />
             </Suspense>
           } />
           <Route path="/contact" element={

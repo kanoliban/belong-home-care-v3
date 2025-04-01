@@ -4,6 +4,7 @@
  * Description: Footer component for the Belong Home Health Care website
  * Updated: 2025-03-21 - Added careers link to the footer
  * Updated: 2025-03-21 - Highlighted "belong" in branded orange color
+ * Updated: 2025-04-01 - Updated location addresses for both residences
  */
 
 import React from 'react';
@@ -43,8 +44,8 @@ const Footer = () => {
               Creating homes where people with mental health conditions truly <span className="text-primary">belong</span>.
             </p>
             <div className="mt-4 text-xs text-text/60">
-              <p>Aspen Grove House (18+): 1234 Maple Street, Brooklyn Park, MN 55443</p>
-              <p>Willow Stream Residence (55+): 5678 River Road, Brooklyn Park, MN 55443</p>
+              <p>Aspen Grove House (18+): 4809 Oxborough Gardens N, Brooklyn Park, MN</p>
+              <p>Willow Stream Residence (55+): 7017 88th Ave N, Brooklyn Park, MN</p>
             </div>
           </div>
           
@@ -58,7 +59,7 @@ const Footer = () => {
               &copy; {new Date().getFullYear()} <span className="text-primary">Belong</span> Health Care. All rights reserved.
             </p>
             <p className="text-xs text-text/60 mt-2">
-              <a href="tel:+16125557890" className="hover:underline">(612) 555-7890</a> • 
+              <a href="tel:+16517056625" className="hover:underline">(651) 705-6625</a> • 
               <a href="mailto:frances@belonghomecare.com" className="hover:underline ml-1">frances@belonghomecare.com</a>
             </p>
             <div className="mt-4 flex space-x-4">
@@ -82,4 +83,4 @@ const Footer = () => {
   );
 };
 
-export default React.memo(Footer);
+export default Footer;
